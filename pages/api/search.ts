@@ -10,6 +10,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method == "POST") {
+    console.log(req.body);
     const chatCompletion = await client.chat.completions.create({
       messages: [
         { role: "user", content: "What is happening on McGill today?" },
@@ -17,7 +18,7 @@ export default async function handler(
       model: "llama3.1-8b",
     });
     const resp = chatCompletion?.choices[0]?.message.content;
-    return res.json({ data: resp });
+    return res.json({ content: resp });
   }
-  return res.json({ data: null });
+  return res.json({ content: null });
 }

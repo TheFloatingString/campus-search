@@ -42,3 +42,10 @@ body {
   margin-left: 10%;
   width: 100%;
 }
+
+#pageContent {
+  padding-left: 10%;
+  padding-right: 15%;
+  padding-top: 3vh;
+  padding-bottom: 10%;
+}
