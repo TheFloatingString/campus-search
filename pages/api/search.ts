@@ -5,6 +5,14 @@ const client = new Cerebras({
   apiKey: process.env["CEREBRAS_API_KEY"],
 });
 
+type modelResp = {
+  choices: Array<{
+    message: {
+      content: string;
+    };
+  }>;
+};
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -15,7 +23,8 @@ export default async function handler(
       messages: [{ role: "user", content: req.body.content }],
       model: "llama3.1-8b",
     });
-    const resp = chatCompletion?.choices[0]?.message.content;
+    const tmp: any = chatCompletion as modelResp;
+    const resp = tmp?.choices[0].message.content;
     return res.json({ content: resp });
   }
   return res.json({ content: null });
