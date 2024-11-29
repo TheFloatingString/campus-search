@@ -19,3 +19,26 @@ body {
   /* background: var(--background); */
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.pageTop {
+  min-height: 100px;
+  padding-top: 15vh;
+}
+
+.displayTitle {
+  /* width: 100%; */
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 100;
+  text-align: center;
+  font-size: xx-large;
+}
+
+#searchBar {
+  width: 80%;
+}
+
+#searchBarComponent {
+  margin-top: 10%;
+  margin-left: 10%;
+  width: 100%;
+}
