@@ -20,7 +20,7 @@ export default function Home() {
     <main>
       <div className="pageTop">
         <center>
-          <span className="displayTitle">Campus Search</span>
+          <span className="displayTitle">Campus Search: McGill Edition</span>
         </center>
       </div>
       <div id="searchBar">
@@ -52,7 +52,7 @@ export default function Home() {
         </div>
       </div>
       <div id="pageContent">
-        <ReactMarkdown children={modelResp} remarkPlugins={[remarkGfm]} />,
+        <ReactMarkdown children={modelResp} remarkPlugins={[remarkGfm]} />
         {/* <p>{modelResp}</p> */}
       </div>
     </main>
