@@ -6,10 +6,11 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 export default function Home() {
-  const [modelResp, setModelResp] = useState("pending...");
+  const [currUserPrompt, setCurrUserPrompt] = useState("");
+  const [modelResp, setModelResp] = useState(null);
 
-  function updateMessage() {
-    axios.post("/api/search").then((resp) => {
+  function updateMessage(prompt: string) {
+    axios.post("/api/search", { content: prompt }).then((resp) => {
       console.log(resp);
       setModelResp(resp.data.content);
     });
@@ -25,10 +26,15 @@ export default function Home() {
       <div id="searchBar">
         <div id="searchBarComponent" className="relative">
           <input
+            onChange={(e) => {
+              setCurrUserPrompt(e.target.value);
+            }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 console.log("User pressed enter!");
-                updateMessage();
+                e.preventDefault();
+
+                updateMessage(currUserPrompt);
               }
             }}
             type="search"
