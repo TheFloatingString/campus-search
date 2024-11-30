@@ -21,6 +21,15 @@ export default function Home() {
       <div className="pageTop">
         <center>
           <span className="displayTitle">Campus Search: McGill Edition</span>
+          <p className="text-sm">Built with Cerebras & Helicone. </p>
+          <br />
+          <a
+            className="text-sm border border-gray-400 px-2 py-1 rounded text-gray-800 hover:bg-blue-100"
+            href="https://tally.so/r/3j0jb1"
+            target="_blank"
+          >
+            Request more features.
+          </a>
         </center>
       </div>
       <div id="searchBar">
