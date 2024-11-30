@@ -1,8 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import Cerebras from "@cerebras/cerebras_cloud_sdk";
+import OpenAI from "openai";
 
-const client = new Cerebras({
+const client = new OpenAI({
   apiKey: process.env["CEREBRAS_API_KEY"],
+  baseURL: "https://cerebras.helicone.ai/v1",
+  defaultHeaders: {
+    "Helicone-Auth": process.env["HELICONE_API_BEARER"],
+  },
 });
 
 type modelResp = {
